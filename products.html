@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Haven | Full Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#0f0c0a;
+    color:white;
+    padding:60px 10%;
+}
+h1, h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+h1{
+    font-size:3rem;
+    margin-bottom:50px;
+}
+h2{
+    font-size:2.2rem;
+    margin-top:50px;
+    margin-bottom:30px;
+    color:#f3c892;
+}
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.menu-card{
+    background:#1c1612;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s ease;
+}
+.menu-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(198,124,78,0.3);
+}
+.menu-card h3{
+    margin-bottom:10px;
+}
+.price{
+    color:#d4a373;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.add-btn{
+    background:#c67c4e;
+    border:none;
+    padding:10px 20px;
+    color:white;
+    font-weight:600;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+.add-btn:hover{
+    background:#a45a2a;
+}
+.back-btn{
+    display:inline-block;
+    margin-top:50px;
+    padding:12px 30px;
+    background:#c67c4e;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s ease;
+}
+.back-btn:hover{
+    background:#a45a2a;
+}
+
+/* CART STYLES */
+.cart-icon{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #c67c4e;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+.cart-count{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #a45a2a;
+    color:white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:12px;
+    font-weight:600;
+}
+.cart-popup{
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background:#1c1612;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    display:none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index:1000;
+}
+.cart-header{
+    background:#c67c4e;
+    padding:15px;
+    font-weight:600;
+    display:flex;
+    justify-content:space-between;
+}
+.cart-body{
+    padding:15px;
+    overflow-y:auto;
+    flex:1;
+}
+.cart-item{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:10px;
+}
+.cart-footer{
+    padding:10px 15px;
+    border-top:1px solid #333;
+    display:flex;
+    justify-content: space-between;
+    font-weight:600;
+    color:#d4a373;
+}
+.remove-btn{
+    background:transparent;
+    border:none;
+    color:#f25c5c;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Our Full Menu</h1>
+
+<!-- DRINKS -->
+<h2>Drinks</h2>
+<div class="menu-grid">
+    <div class="menu-card">
+        <h3>Classic Espresso</h3>
+        <p class="price">120</p>
+        <button class="add-btn" onclick="addToCart('Classic Espresso',120)">Add to Cart</button>
+    </div>
+    <div class="menu-card">
+        <h3>Macchiato</h3>
+        <p class="price">130</p>
+        <button class="add-btn" onclick="addToCart('Macchiato',130)">Add to Cart</button>
+    </div>
+    <div class="menu-card">
+        <h3>Caramel Latte</h3>
+        <p class="price">150</p>
+        <button class="add-btn" onclick="addToCart('Caramel Latte',150)">Add to Cart</button>
+    </div>
+</div>
+
+<!-- FOOD -->
+<h2>Food</h2>
+<div class="menu-grid">
+    <div class="menu-card">
+        <h3>Croissant</h3>
+        <p class="price">95</p>
+        <button class="add-btn" onclick="addToCart('Croissant',95)">Add to Cart</button>
+    </div>
+    <div class="menu-card">
+        <h3>Muffin</h3>
+        <p class="price">85</p>
+        <button class="add-btn" onclick="addToCart('Muffin',85)">Add to Cart</button>
+    </div>
+    <div class="menu-card">
+        <h3>Pasta</h3>
+        <p class="price">180</p>
+        <button class="add-btn" onclick="addToCart('Pasta',180)">Add to Cart</button>
+    </div>
+</div>
+
+<!-- COFFEE PRODUCTS -->
+<h2>Coffee Products</h2>
+<div class="menu-grid">
+    <div class="menu-card">
+        <h3>Arabica Beans (250g)</h3>
+        <p class="price">450</p>
+        <button class="add-btn" onclick="addToCart('Arabica Beans (250g)',450)">Add to Cart</button>
+    </div>
+    <div class="menu-card">
+        <h3>Ground Coffee (250g)</h3>
+        <p class="price">420</p>
+        <button class="add-btn" onclick="addToCart('Ground Coffee (250g)',420)">Add to Cart</button>
+    </div>
+</div>
+
+<div style="text-align:center;">
+    <a href="index.html" class="back-btn">Back to Home</a>
+</div>
+
+<!-- CART -->
+<div class="cart-icon" onclick="toggleCart()">
+    🛒
+    <div class="cart-count" id="cart-count">0</div>
+</div>
+
+<div class="cart-popup" id="cart-popup">
+    <div class="cart-header">
+        Cart
+        <span onclick="toggleCart()" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="cart-body" id="cart-body">
+        <!-- Cart items appear here -->
+    </div>
+    <div class="cart-footer">
+        Total: ₱<span id="cart-total">0</span>
+    </div>
+    <button class="add-btn" style="margin:10px;" onclick="openCheckout()">Checkout</button>
+</div>
+
+<!-- CHECKOUT POPUP WITH NOTE AND ORDER METHOD -->
+<div class="cart-popup" id="checkout-popup" style="display:none;">
+    <div class="cart-header">
+        Checkout
+        <span onclick="closeCheckout()" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="cart-body" id="checkout-body">
+        <form id="checkout-form">
+            <label>Name:</label><br>
+            <input type="text" id="customer-name" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"><br>
+
+            <label>Contact Number:</label><br>
+            <input type="text" id="customer-contact" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"><br>
+
+            <label>Order Method:</label><br>
+            <label><input type="radio" name="order-method" value="Dine-in"> Dine-in</label><br>
+            <label><input type="radio" name="order-method" value="Take-out"> Take-out</label><br>
+            <label><input type="radio" name="order-method" value="Delivery"> Delivery</label><br><br>
+
+            <label>Delivery Address (if Delivery selected):</label><br>
+            <textarea id="customer-address" placeholder="Only for delivery" style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"></textarea><br>
+
+            <label>Note:</label><br>
+            <textarea id="customer-note" placeholder="Add special instructions (optional)" style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"></textarea><br>
+
+            <label>Payment Method:</label><br>
+            <select id="payment-method" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;">
+                <option value="">--Select Payment--</option>
+                <option value="Cash">Cash</option>
+                <option value="GCash">GCash</option>
+                <option value="Maya">Maya</option>
+                <option value="Credit/Debit Card">Credit/Debit Card</option>
+            </select>
+
+            <div style="margin-top:10px;">
+                <strong>Order Summary:</strong>
+                <div id="order-summary" style="margin-top:10px;"></div>
+                <strong>Total: ₱<span id="checkout-total">0</span></strong>
+            </div>
+
+            <button type="submit" class="add-btn" style="margin-top:15px;">Place Order</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+function toggleCart(){
+    const popup = document.getElementById('cart-popup');
+    popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+}
+
+let cart = [];
+
+function addToCart(name, price){
+    const existing = cart.find(item => item.name === name);
+    if(existing){
+        existing.qty +=1;
+    } else {
+        cart.push({name, price, qty:1});
+    }
+    updateCart();
+}
+
+function removeFromCart(name){
+    cart = cart.filter(item => item.name !== name);
+    updateCart();
+}
+
+function updateCart(){
+    const cartBody = document.getElementById('cart-body');
+    cartBody.innerHTML = '';
+    let total = 0;
+    cart.forEach(item=>{
+        total += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+            <span>${item.name} x ${item.qty}</span>
+            <span>₱${item.price*item.qty} <button class="remove-btn" onclick="removeFromCart('${item.name}')">✖</button></span>
+        `;
+        cartBody.appendChild(div);
+    });
+    document.getElementById('cart-total').textContent = total;
+    document.getElementById('cart-count').textContent = cart.reduce((sum,item)=>sum+item.qty,0);
+}
+
+// --- Checkout ---
+function openCheckout(){
+    if(cart.length===0){
+        alert("Your cart is empty!");
+        return;
+    }
+    const checkoutPopup = document.getElementById('checkout-popup');
+    checkoutPopup.style.display = 'flex';
+
+    // Populate order summary
+    const summaryDiv = document.getElementById('order-summary');
+    summaryDiv.innerHTML = '';
+    let total = 0;
+    cart.forEach(item=>{
+        total += item.price * item.qty;
+        summaryDiv.innerHTML += `<div>${item.name} x ${item.qty} = ₱${item.price*item.qty}</div>`;
+    });
+    document.getElementById('checkout-total').textContent = total;
+}
+
+function closeCheckout(){
+    document.getElementById('checkout-popup').style.display = 'none';
+}
+
+// Handle form submit
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('customer-name').value;
+    const contact = document.getElementById('customer-contact').value;
+    const address = document.getElementById('customer-address').value;
+    const payment = document.getElementById('payment-method').value;
+
+    if(!name || !contact || !address || !payment){
+        alert("Please fill all fields and select a payment method!");
+        return;
+    }
+
+    alert(`Thank you ${name}! Your order has been placed.\nPayment Method: ${payment}\nTotal: ₱${cart.reduce((sum,item)=>sum+item.price*item.qty,0)}`);
+
+    // Clear cart
+    cart = [];
+    updateCart();
+    closeCheckout();
+});
+</script>
+
+
+
+<!-- CHECKOUT POPUP WITH DYNAMIC ADDRESS FIELD -->
+<div class="cart-popup" id="checkout-popup" style="display:none;">
+    <div class="cart-header">
+        Checkout
+        <span onclick="closeCheckout()" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="cart-body" id="checkout-body">
+        <form id="checkout-form">
+            <label>Name:</label><br>
+            <input type="text" id="customer-name" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"><br>
+
+            <label>Contact Number:</label><br>
+            <input type="text" id="customer-contact" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"><br>
+
+            <label>Order Method:</label><br>
+            <label><input type="radio" name="order-method" value="Dine-in"> Dine-in</label><br>
+            <label><input type="radio" name="order-method" value="Take-out"> Take-out</label><br>
+            <label><input type="radio" name="order-method" value="Delivery"> Delivery</label><br><br>
+
+            <!-- Delivery address (hidden initially) -->
+            <div id="address-field" style="display:none;">
+                <label>Delivery Address:</label><br>
+                <textarea id="customer-address" placeholder="Enter your delivery address" style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"></textarea><br>
+            </div>
+
+            <label>Note:</label><br>
+            <textarea id="customer-note" placeholder="Add special instructions (optional)" style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;"></textarea><br>
+
+            <label>Payment Method:</label><br>
+            <select id="payment-method" required style="width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:none;">
+                <option value="">--Select Payment--</option>
+                <option value="Cash">Cash</option>
+                <option value="GCash">GCash</option>
+                <option value="Maya">Maya</option>
+                <option value="Credit/Debit Card">Credit/Debit Card</option>
+            </select>
+
+            <div style="margin-top:10px;">
+                <strong>Order Summary:</strong>
+                <div id="order-summary" style="margin-top:10px;"></div>
+                <strong>Total: ₱<span id="checkout-total">0</span></strong>
+            </div>
+
+            <button type="submit" class="add-btn" style="margin-top:15px;">Place Order</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+function toggleCart(){
+    const popup = document.getElementById('cart-popup');
+    popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+}
+
+let cart = [];
+
+function addToCart(name, price){
+    const existing = cart.find(item => item.name === name);
+    if(existing){
+        existing.qty +=1;
+    } else {
+        cart.push({name, price, qty:1});
+    }
+    updateCart();
+}
+
+function removeFromCart(name){
+    cart = cart.filter(item => item.name !== name);
+    updateCart();
+}
+
+function updateCart(){
+    const cartBody = document.getElementById('cart-body');
+    cartBody.innerHTML = '';
+    let total = 0;
+    cart.forEach(item=>{
+        total += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+            <span>${item.name} x ${item.qty}</span>
+            <span>₱${item.price*item.qty} <button class="remove-btn" onclick="removeFromCart('${item.name}')">✖</button></span>
+        `;
+        cartBody.appendChild(div);
+    });
+    document.getElementById('cart-total').textContent = total;
+    document.getElementById('cart-count').textContent = cart.reduce((sum,item)=>sum+item.qty,0);
+}
+
+// --- Checkout ---
+<script>
+// --- Checkout Functions ---
+function openCheckout(){
+    if(cart.length===0){
+        alert("Your cart is empty!");
+        return;
+    }
+    const checkoutPopup = document.getElementById('checkout-popup');
+    checkoutPopup.style.display = 'flex';
+
+    // Populate order summary
+    const summaryDiv = document.getElementById('order-summary');
+    summaryDiv.innerHTML = '';
+    let total = 0;
+    cart.forEach(item=>{
+        total += item.price * item.qty;
+        summaryDiv.innerHTML += `<div>${item.name} x ${item.qty} = ₱${item.price*item.qty}</div>`;
+    });
+    document.getElementById('checkout-total').textContent = total;
+
+    // Hide address field initially
+    document.getElementById('address-field').style.display = 'none';
+}
+
+// Show/hide address when order method changes
+document.querySelectorAll('input[name="order-method"]').forEach(radio => {
+    radio.addEventListener('change', function(){
+        const addressField = document.getElementById('address-field');
+        if(this.value === "Delivery"){
+            addressField.style.display = 'block';
+        } else {
+            addressField.style.display = 'none';
+        }
+    });
+});
+
+function closeCheckout(){
+    document.getElementById('checkout-popup').style.display = 'none';
+}
+
+// Handle form submit
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('customer-name').value.trim();
+    const contact = document.getElementById('customer-contact').value.trim();
+    const payment = document.getElementById('payment-method').value;
+    const note = document.getElementById('customer-note').value.trim();
+    const address = document.getElementById('customer-address').value.trim();
+
+    // Get order method
+    const orderMethodInput = document.querySelector('input[name="order-method"]:checked');
+    if(!orderMethodInput){
+        alert("Please select an order method!");
+        return;
+    }
+    const orderMethod = orderMethodInput.value;
+
+    if(!name || !contact || !payment){
+        alert("Please fill all required fields!");
+        return;
+    }
+
+    // Validate address if Delivery selected
+    if(orderMethod === "Delivery" && address === ""){
+        alert("Please enter a delivery address!");
+        return;
+    }
+
+    // Show order confirmation
+    alert(
+        `Thank you ${name}! Your order has been placed.\n\n` +
+        `Order Method: ${orderMethod}\n` +
+        `Address: ${orderMethod === "Delivery" ? address : 'N/A'}\n` +
+        `Payment Method: ${payment}\n` +
+        `Note: ${note ? note : 'None'}\n` +
+        `Total: ₱${cart.reduce((sum,item)=>sum+item.price*item.qty,0)}`
+    );
+
+    // Clear cart
+    cart = [];
+    updateCart();
+    closeCheckout();
+});
+</script>
+
+
+</body>
+</html>
