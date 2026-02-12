@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Haven Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f0c0a;
+            color: #fff;
+        }
+
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #f3c892;
+        }
+.btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: #c67c4e;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+        }
+
+        .btn:hover {
+            background: #a45a2a;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #1c1612;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(198,124,78,0.3);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #d4a373;
+        }
+
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+        }
+
+        footer {
+            background: #1c1612;
+            text-align: center;
+            padding: 30px;
+            color: #aaa;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Brew Haven</h1>
+    <p>Awaken Your Senses with Every Sip</p>
+    <a href="products.html" class="btn">Explore Menu</a>
+</header>
+
+<section>
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e" alt="Coffee Beans">
+        <div>
+            <h2 style="font-size:2.5rem; margin-bottom:20px;">About Brew Haven</h2>
+            <p style="color:#ccc; line-height:1.8;">
+                At Brew Haven, we serve premium handcrafted coffee made from carefully selected beans.
+                Every cup is brewed with passion, delivering rich aroma and unforgettable taste.
+            </p>
+            <button class="btn" style="margin-top:20px;">Order Now</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Brew Haven Coffee | Follow us @brewhaven
+</footer>
+
+<script>
+    function scrollToProducts() {
+        document.getElementById("products").scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
