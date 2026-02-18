@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrewHa Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', 'Poppins', sans-serif;
+}
+
+body {
+    background: #fefcf9;
+    color: #2c2c2c;
+    line-height: 1.6;
+}
+
+/* LOGO & CONTACT INFO */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: #fffaf5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.topbar img {
+    height: 65px;
+    object-fit: contain;
+}
+
+.topbar .contact-info {
+    text-align: right;
+    font-size: 0.95rem;
+    color: #6b584a;
+    font-weight: 500;
+}
+
+.topbar .contact-info p {
+    margin: 2px 0;
+}
+
+/* HEADER */
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                url('tutu.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fdfcf8;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.35);
+}
+
+header p {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #e6d8c3;
+    font-style: italic;
+}
+
+/* BUTTONS */
+.btn {
+    margin-top: 30px;
+    padding: 14px 32px;
+    background: #8b674f;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: #6d4b3d;
+    transform: scale(1.05);
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: #5a4a3e;
+    font-weight: 700;
+}
+
+/* PRODUCT CARDS */
+.products, .about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: #fffaf5;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.4s ease;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+}
+
+.card img:hover {
+    transform: scale(1.03);
+}
+
+.card h3 {
+    margin: 18px 0 12px;
+    color: #4a3f35;
+    font-weight: 700;
+}
+
+.card p {
+    color: #8b6b50;
+    margin-bottom: 10px;
+}
+
+/* ABOUT SECTION */
+.about img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.about div h2 {
+    color: #4a3f35;
+    font-weight: 700;
+}
+
+.about div p {
+    color: #6b584a;
+    line-height: 1.8;
+}
+
+/* CUSTOMER SERVICE */
+.customer-service {
+    text-align: center;
+    background: #fffaf5;
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.customer-service p {
+    margin: 12px 0;
+    color: #6b584a;
+}
+
+/* FOOTER */
+footer {
+    background: #fffaf5;
+    text-align: center;
+    padding: 35px;
+    color: #8c7b6b;
+    font-size: 0.95rem;
+}
+
+/* CHATBOT & CHECKOUT ICONS */
+.chatbot-icon, .checkout-icon {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    transition: 0.3s ease;
+    z-index: 999;
+    background: #8b674f;
+    color: #fff;
+}
+
+.chatbot-icon:hover, .checkout-icon:hover {
+    background: #6d4b3d;
+    transform: scale(1.1);
+}
+
+.chatbot-icon {
+    bottom: 30px;
+    right: 30px;
+}
+
+.checkout-icon {
+    bottom: 110px;
+    right: 30px;
+}
+
+.checkout-icon .cart-count, .chatbot-icon .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #6d4b3d;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* CHATBOT CONTAINER */
+.chatbot-container {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 320px;
+    background: #fffaf5;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.chat-header {
+    background: #8b674f;
+    padding: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.chat-body {
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #2c2c2c;
+}
+
+.bot-message {
+    background: #f2ede7;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    color: #4a3f35;
+}
+
+.user-message {
+    background: #8b674f;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    text-align: right;
+    color: #fff;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #e0dcd4;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: #f5f1eb;
+    color: #2c2c2c;
+}
+
+.chat-footer button {
+    background: #8b674f;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .chatbot-icon, .checkout-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .chatbot-container {
+        width: 90%;
+        right: 5%;
+        bottom: 90px;
+    }
+}
+    </style>
+</head>
+<body>
+
+<!-- TOPBAR: LOGO + CONTACT INFO -->
+<div class="topbar">
+    <img src="logo.jpg" alt="BrewHa Coffee Logo">
+    <div class="contact-info">
+        <p>📞 +63 912 345 6789</p>
+        <p>📍 123 Coffee St, Your City, Philippines</p>
+    </div>
+</div>
+
+<header>
+    <h1>BrewHa Coffee</h1>
+    <p>Bean there. Brew that.</p>
+    <a href="explore.html" class="btn">Explore</a>
+</header>
+
+<section>
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e" alt="Coffee Beans">
+        <div>
+            <h2 style="text-align:left;">About BrewHa Coffee</h2>
+            <p style="color:#6b584a; line-height:1.8;">
+                At BrewHa, we serve premium handcrafted coffee made from carefully selected beans.
+                Every cup is brewed with passion, delivering rich aroma and unforgettable taste.
+            </p>
+            <a href="products.html" class="btn">Order Now</a>
+        </div>
+    </div>
+</section>
+
+<div class="chatbot-icon" onclick="toggleChat()">☕</div>
+
+<div class="chatbot-container" id="chatbot">
+    <div class="chat-header">
+        BrewHa Support ☕
+        <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+        <div class="bot-message">Hi! 👋 Welcome to BrewHa Coffee. How can I help you today?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKey(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function toggleChat() {
+    const chat = document.getElementById("chatbot");
+    chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function handleKey(event) {
+    if (event.key === "Enter") sendMessage();
+}
+
+function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    const chatBody = document.getElementById("chat-body");
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+    chatBody.appendChild(userMsg);
+
+    input.value = "";
+
+    setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "bot-message";
+
+        let reply = "Thank you for messaging Brew Haven! ☕";
+        const lowerMsg = message.toLowerCase();
+
+        if (lowerMsg.includes("menu"))
+            reply = "You can view our menu above under Signature Drinks and Coffee Products ☕";
+        else if (lowerMsg.includes("delivery"))
+            reply = "We offer dine-in, take-out, and local delivery 🚚";
+        else if (lowerMsg.includes("payment"))
+            reply = "We accept Cash, GCash, Maya, and Credit/Debit cards 💳";
+        else if (lowerMsg.includes("location"))
+            reply = "We are located in Your City, Philippines 📍";
+        else if (lowerMsg.includes("price"))
+            reply = "Our drinks start at ₱110 and coffee beans at ₱450 ☕";
+
+        botMsg.textContent = reply;
+        chatBody.appendChild(botMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+}
+</script>
+
+<footer>
+    © 2026 BrewHa Coffee | Follow us @brewhacoffee
+</footer>
+
+</body>
+</html>
