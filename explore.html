@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Haven | Explore</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #ffffff;
+        color: #1c1c1c;
+    }
+
+    header {
+        padding: 50px 10%;
+        text-align: center;
+        background: #f9f9f9;
+    }
+
+    header h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: #a67c52;
+    }
+
+    section {
+        padding: 60px 10%;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #1c1c1c;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        background: #f9f9f9;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        color: #1c1c1c;
+    }
+
+    .card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin: 50px auto 0;
+        padding: 12px 30px;
+        background: #c67c4e;
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+        background: #a45a2a;
+    }
+
+    @media(max-width: 768px) {
+        header h1 {
+            font-size: 2.5rem;
+        }
+   .register-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 34px;
+    background: #1c1c1c;
+    color: #ffffff;
+    border-radius: 30px;
+    text-decoration: none; /* removes underline */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+
+.register-btn:hover {
+    background: #c67c4e;
+    text-decoration: none; /* prevents underline on hover */
+}
+
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Explore Brew Haven</h1>
+    <p>Discover our coffee shop, farm, and fun activities</p>
+</header>
+
+<section>
+    <h2>Coffee Shop</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="interior.avif" alt="Coffee Shop Interior">
+            <h3>Our Cozy Interior</h3>
+            <p>Relax and enjoy premium coffee in our warm and inviting atmosphere.</p>
+        </div>
+        <div class="card">
+            <img src="bar.webp" alt="Coffee Bar">
+            <h3>Coffee Bar</h3>
+            <p>Experience the art of coffee-making with our baristas crafting your favorite drinks.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Our Farm</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="farm.jpg" alt="Coffee Farm">
+            <h3>Our Coffee Farm</h3>
+            <p>Walk through our coffee plantation and see how we grow our premium beans sustainably.</p>
+        </div>
+        <div class="card">
+            <img src="experience.jpg" alt="Farm Workers">
+            <h3>Hands-on Experience</h3>
+            <p>Participate in harvesting or learn about the coffee-making process from farm to cup.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Activities</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="drying.jpg" alt="Coffee Drying">
+            <h3>Coffee Drying</h3>
+        </div>
+        <div class="card">
+            <img src="activity.jpg" alt="Workshops">
+            <h3>Workshops & Tours</h3>
+            <p>Join coffee workshops or guided farm tours for an immersive experience.</p>
+        </div>
+    </div>
+     <div style="text-align:center; margin-top: 30px;">
+    <a href="register.html" class="back-btn">Register for Farm-to-Cup Activities</a>
+</div>
+
+</div>
+</section>
+
+<div style="text-align:center;">
+    <a href="index.html" class="back-btn">Back to Home</a>
+</div>
+
+</body>
+</html>
